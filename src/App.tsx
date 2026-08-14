@@ -6,6 +6,7 @@ import fotoBruno from './assets/bruno.jpeg';
 import fotoEloah from './assets/eloah.jpeg';
 import fotoRafael from './assets/rafa.jpeg';
 import fotoMaria from './assets/eu.jpeg';
+import fotoRicardo from './assets/ricardo.jpeg';
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -137,7 +138,7 @@ function AboutPage() {
   const TEAM: TeamMember[] = [
     { name: "Daniel", role: "Game Dev", initials: "D", photo: fotoDaniel },
     { name: "Bruno", role: "Game Dev", initials: "B", photo: fotoBruno },
-    { name: "Ricardo", role: "Game Dev", initials: "R" },
+    { name: "Ricardo", role: "Game Dev", initials: "R", photo: fotoRicardo },
     { name: "Maria Clara", role: "Frontend Dev", initials: "MC", photo: fotoMaria},
     { name: "Rafael", role: "Frontend Dev", initials: "R", photo: fotoRafael },
     { name: "Eloah", role: "Efeitos Sonoros", initials: "E", photo: fotoEloah },
@@ -157,7 +158,7 @@ function AboutPage() {
             <div className="team-card">
               <div className="team-avatar">
                 {m.photo ? (
-                  <img src={m.photo} alt={m.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={m.photo} alt={m.name} style={{ width: '90%', height: '90%', objectFit: 'cover' }} />
                 ) : (
                   <span>{m.initials}</span>
                 )}
