@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import icon from "./assets/icon.png";
 import foto from "./assets/fotosite.jpeg";
+import fotoDaniel from './assets/daniel.jpeg';
+import fotoBruno from './assets/bruno.jpeg';
+import fotoEloah from './assets/eloah.jpeg';
+import fotoRafael from './assets/rafa.jpeg';
+import fotoMaria from './assets/eu.jpeg';
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -125,16 +130,19 @@ interface TeamMember {
   name: string;
   role: string;
   initials: string;
+  photo?: string;
 }
 
 function AboutPage() {
   const TEAM: TeamMember[] = [
-    { name: "Daniel", role: "Game Dev", initials: "D" },
-    { name: "Bruno", role: "Game Dev", initials: "B" },
-    { name: "Maria Clara", role: "Frontend Dev", initials: "MC" },
-    { name: "Rafael", role: "Frontend Dev", initials: "R" },
-    { name: "Eloah", role: "Efeitos Sonoros", initials: "E" },
+    { name: "Daniel", role: "Game Dev", initials: "D", photo: fotoDaniel },
+    { name: "Bruno", role: "Game Dev", initials: "B", photo: fotoBruno },
+    { name: "Ricardo", role: "Game Dev", initials: "R" },
+    { name: "Maria Clara", role: "Frontend Dev", initials: "MC", photo: fotoMaria},
+    { name: "Rafael", role: "Frontend Dev", initials: "R", photo: fotoRafael },
+    { name: "Eloah", role: "Efeitos Sonoros", initials: "E", photo: fotoEloah },
     { name: "Felipe", role: "Documentação", initials: "F" },
+    
   ];
 
   return (
@@ -148,7 +156,11 @@ function AboutPage() {
           <Reveal delay={i * 60} key={m.name}>
             <div className="team-card">
               <div className="team-avatar">
-                <span>{m.initials}</span>
+                {m.photo ? (
+                  <img src={m.photo} alt={m.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ) : (
+                  <span>{m.initials}</span>
+                )}
               </div>
               <div className="team-body">
                 <h3>{m.name}</h3>
